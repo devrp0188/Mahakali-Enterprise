@@ -801,6 +801,50 @@
             margin-bottom: 50px;
         }
 
+        /* ===== PRODUCTS (UPGRADED) ===== */
+        @media (max-width: 768px) {
+
+            #gallery .product img {
+                height: auto;
+                /* remove fixed height */
+                max-height: 200px;
+                /* control size */
+                object-fit: contain;
+                /* show full image */
+                padding: 10px;
+                /* optional spacing */
+                background: #fff;
+                /* clean look */
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            #gallery .product-info h3 {
+                font-size: 16px;
+                line-height: 1.3;
+
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                /* max 2 lines */
+                -webkit-box-orient: vertical;
+
+                overflow: hidden;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            #gallery .product-info .product-desc {
+                -webkit-line-clamp: 1;
+                /* 🔥 only 1 line */
+                line-clamp: 1;
+            }
+
+        }
+
         /* ===== REVIEWS ===== */
 
         /* ===== REVIEWS (UPGRADED) ===== */
@@ -1303,6 +1347,101 @@
                 box-shadow: 0 0 0 rgba(255, 87, 34, 0.5);
             }
         }
+
+        /* ===== MOBILE MENU FIX ===== */
+
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            background: none;
+            border: none;
+            color: #0b4fa3;
+            cursor: pointer;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            header {
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                padding: 14px;
+                border-bottom: 1px solid #eee;
+            }
+
+            nav.active {
+                max-height: 300px;
+            }
+        }
+
+        /* ===== MOBILE CAROUSEL FIX ===== */
+        @media (max-width: 768px) {
+
+            #gallery .product {
+                min-width: 85%;
+                max-width: 85%;
+            }
+
+            #gallery .product-track {
+                gap: 14px;
+            }
+
+            #gallery .product-carousel::before,
+            #gallery .product-carousel::after {
+                width: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            #gallery .product {
+                min-width: 85%;
+                max-width: 85%;
+                flex-shrink: 0;
+            }
+
+            #gallery .product img {
+                width: 100%;
+                height: 180px;
+                object-fit: contain;
+                display: block;
+            }
+
+        }
+
+        #gallery .product-track {
+            transform: translateX(0);
+            /* override 3d issue */
+            will-change: auto;
+        }
+
+        #gallery .product img {
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
     </style>
 
 </head>
@@ -1315,6 +1454,7 @@
 
     <header>
         <div class="logo"><img src="header_logo.png" alt="Mahakali Enterprise"></div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
         <nav class="d-flex justify-content">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
@@ -1426,7 +1566,7 @@
             <div class="product-track product-track-new">
 
                 <div class="product">
-                    <img src="products/Premium Wireless Earbuds.jpg" alt="Premium Wireless Earbuds" loading="lazy"
+                    <img src="products/Premium_Wireless_Earbuds.jpg" alt="Premium Wireless Earbuds" loading="lazy"
                         decoding="async">
                     <div class="product-info">
                         <h3>Premium Wireless Earbuds</h3>
@@ -1438,8 +1578,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="products/Wireless Headphone.jpg" alt="Wireless Headphone" loading="lazy"
-                        decoding="async">
+                    <img src="products/Wireless_Headphone.jpg" alt="Wireless Headphone" loading="lazy" decoding="async">
                     <div class="product-info">
                         <h3>Wireless Headphone</h3>
                         <p class="product-desc">Deep bass. Clear sound. Wireless freedom with style.</p>
@@ -1449,7 +1588,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="products/Smart Fitness Watch.jpg" alt="Smart Fitness Watch" loading="lazy"
+                    <img src="products/Smart_Fitness_Watch.jpg" alt="Smart Fitness Watch" loading="lazy"
                         decoding="async">
                     <div class="product-info">
                         <h3>Smart Fitness Watch</h3>
@@ -1462,7 +1601,7 @@
                 </div>
 
                 <div class="product">
-                    <img src="products/Fast Charging Power Bank.jpg" alt="Fast Charging Power Bank" loading="lazy"
+                    <img src="products/Fast_Charging_Power_Bank.jpg" alt="Fast Charging Power Bank" loading="lazy"
                         decoding="async">
                     <div class="product-info">
                         <h3>Fast Charging Power Bank</h3>
@@ -1475,7 +1614,7 @@
                 </div>
 
                 <div class="product">
-                    <img src="products/Portable Bluetooth Speaker.jpg" alt="Portable Bluetooth Speaker" loading="lazy"
+                    <img src="products/Portable_Bluetooth_Speaker.jpg" alt="Portable Bluetooth Speaker" loading="lazy"
                         decoding="async">
                     <div class="product-info">
                         <h3>Portable Bluetooth Speaker</h3>
@@ -1488,8 +1627,7 @@
                 </div>
 
                 <div class="product">
-                    <img src="products/Neckband Earphones.jpg" alt="Neckband Earphones" loading="lazy"
-                        decoding="async">
+                    <img src="products/Neckband_Earphones.jpg" alt="Neckband Earphones" loading="lazy" decoding="async">
                     <div class="product-info">
                         <h3>Neckband Earphones</h3>
                         <p class="product-desc">Lightweight wireless neckband with clear calling audio and long playback
@@ -1501,7 +1639,7 @@
                 </div>
 
                 <div class="product">
-                    <img src="products/Mobile Charger Adapter.jpg" alt="Mobile Charger Adapter" loading="lazy"
+                    <img src="products/Mobile_Charger_Adapter.jpg" alt="Mobile Charger Adapter" loading="lazy"
                         decoding="async">
                     <div class="product-info">
                         <h3>Mobile Charger Adapter</h3>
@@ -1604,7 +1742,8 @@
         <p>Mobile Repair • Accessories • Gadgets</p>
     </footer>
 
-    <a class="whatsapp" href="https://wa.me/919904203825?text=Hello%2C%20I%20want%20to%20enquire%20about%20your%20services."
+    <a class="whatsapp"
+        href="https://wa.me/919904203825?text=Hello%2C%20I%20want%20to%20enquire%20about%20your%20services."
         target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <img height="30" width="30" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp icon">
     </a>
@@ -1671,7 +1810,7 @@
 
                 toggleButton.classList.remove("is-visible");
                 toggleButton.textContent = "Read more...";
-                const hasOverflow = description.scrollHeight > description.clientHeight + 1;
+                const hasOverflow = description.scrollHeight > description.offsetHeight + 5;
 
                 if (hasOverflow) {
                     toggleButton.classList.add("is-visible");
@@ -1702,7 +1841,8 @@
             let currentOffset = 0;
             let targetOffset = 0;
             let lastTimestamp = 0;
-            const pixelsPerSecond = prefersReducedMotion ? 0 : 30;
+            const isMobile = window.innerWidth < 768;
+            const pixelsPerSecond = (prefersReducedMotion || isMobile) ? 0 : 30;
             const manualPauseMs = 2600;
             let resumeAutoAt = 0;
             let animationFrameId = null;
@@ -1759,7 +1899,7 @@
 
                 const distance = getShortestDistance(currentOffset, targetOffset, loopWidth);
                 currentOffset = normalizeOffset(currentOffset + (distance * 0.14), loopWidth);
-                track.style.transform = `translate3d(${-currentOffset}px, 0, 0)`;
+                track.style.transform = `translateX(${-currentOffset}px)`;
 
                 animationFrameId = window.requestAnimationFrame(animateProducts);
             }
@@ -1768,7 +1908,7 @@
                 const loopWidth = getLoopWidth();
                 currentOffset = normalizeOffset(currentOffset, loopWidth);
                 targetOffset = normalizeOffset(targetOffset, loopWidth);
-                track.style.transform = `translate3d(${-currentOffset}px, 0, 0)`;
+                track.style.transform = `translateX(${-currentOffset}px)`;
             }
 
             carousel.addEventListener("mouseenter", () => {
@@ -1859,7 +1999,16 @@
         });
 
     </script>
+
+    <script>
+        // MOBILE MENU TOGGLE
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.querySelector("header nav");
+
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    </script>
 </body>
 
 </html>
-
