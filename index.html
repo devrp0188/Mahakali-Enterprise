@@ -1428,7 +1428,14 @@
                 height: 180px;
                 object-fit: contain;
                 display: block;
+
+                transform: translateZ(0);
+                -webkit-transform: translateZ(0);
+
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
             }
+
 
         }
 
@@ -1441,6 +1448,70 @@
         #gallery .product img {
             backface-visibility: hidden;
             transform: translateZ(0);
+        }
+
+        /* HIDE MOBILE SECTION BY DEFAULT */
+        .mobile-products {
+            display: none;
+        }
+
+        /* MOBILE VIEW */
+        @media (max-width: 768px) {
+
+            /* ❌ Hide old carousel */
+            #gallery {
+                display: none !important;
+            }
+
+            /* ✅ Show mobile section */
+            .mobile-products {
+                display: block;
+                padding: 50px 20px;
+                background: #eef4ff;
+                text-align: center;
+            }
+
+            .mobile-products h2 {
+                font-size: 28px;
+                margin-bottom: 20px;
+                color: #0b4fa3;
+            }
+
+            .mobile-product-list {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .mobile-product {
+                background: white;
+                padding: 15px;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-product img {
+                width: 100%;
+                height: 160px;
+                object-fit: contain;
+                margin-bottom: 10px;
+            }
+
+            .mobile-product h3 {
+                font-size: 16px;
+                margin-bottom: 10px;
+                color: #0b4fa3;
+            }
+
+            .mobile-product .buy-btn {
+                display: inline-block;
+                padding: 8px 16px;
+                background: #0b4fa3;
+                color: white;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 14px;
+            }
         }
     </style>
 
@@ -1654,6 +1725,40 @@
             </div>
         </div>
     </section>
+
+    <!-- MOBILE PRODUCT SECTION -->
+    <section class="mobile-products reveal" id="mobileProducts">
+        <h2>Our Products</h2>
+
+        <div class="mobile-product-list">
+
+            <div class="mobile-product">
+                <img src="products/Premium_Wireless_Earbuds.jpg" alt="">
+                <h3>Premium Wireless Earbuds</h3>
+                <a href="https://wa.me/919904203825" class="buy-btn">Enquire</a>
+            </div>
+
+            <div class="mobile-product">
+                <img src="products/Wireless_Headphone.jpg" alt="">
+                <h3>Wireless Headphone</h3>
+                <a href="https://wa.me/919904203825" class="buy-btn">Enquire</a>
+            </div>
+
+            <div class="mobile-product">
+                <img src="products/Smart_Fitness_Watch.jpg" alt="">
+                <h3>Smart Fitness Watch</h3>
+                <a href="https://wa.me/919904203825" class="buy-btn">Enquire</a>
+            </div>
+
+            <div class="mobile-product">
+                <img src="products/Fast_Charging_Power_Bank.jpg" alt="">
+                <h3>Power Bank</h3>
+                <a href="https://wa.me/919904203825" class="buy-btn">Enquire</a>
+            </div>
+
+        </div>
+    </section>
+
     <section class="reviews reveal" id="reviews">
 
         <h2>Our Reviews</h2>
