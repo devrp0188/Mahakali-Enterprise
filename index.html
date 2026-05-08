@@ -803,47 +803,49 @@
         }
 
         /* ===== PRODUCTS (UPGRADED) ===== */
-      @media (max-width: 768px) {
+        @media (max-width: 768px) {
 
-    #gallery .product-carousel {
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        padding: 20px 0;
-    }
+            #gallery .product img {
+                height: auto;
+                /* remove fixed height */
+                max-height: 200px;
+                /* control size */
+                object-fit: contain;
+                /* show full image */
+                padding: 10px;
+                /* optional spacing */
+                background: #fff;
+                /* clean look */
+            }
 
-    #gallery .product-track {
-        display: flex;
-        gap: 20px;
-        transition: transform 0.4s ease;
-        will-change: transform;
-    }
+        }
 
-    #gallery .product {
-        flex: 0 0 80%;
-        min-width: 80%;
-        max-width: 80%;
-        margin: auto;
-    }
+        @media (max-width: 768px) {
 
-    #gallery .product-arrow {
-        display: flex;
-        width: 42px;
-        height: 42px;
-        font-size: 28px;
-        background: rgba(255,255,255,0.9);
-        color: #0b4fa3;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    }
+            #gallery .product-info h3 {
+                font-size: 16px;
+                line-height: 1.3;
 
-    #gallery .product-arrow-prev {
-        left: 5px;
-    }
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                /* max 2 lines */
+                -webkit-box-orient: vertical;
 
-    #gallery .product-arrow-next {
-        right: 5px;
-    }
-}
+                overflow: hidden;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            #gallery .product-info .product-desc {
+                -webkit-line-clamp: 1;
+                /* 🔥 only 1 line */
+                line-clamp: 1;
+            }
+
+        }
+
         /* ===== REVIEWS ===== */
 
         /* ===== REVIEWS (UPGRADED) ===== */
@@ -2263,14 +2265,14 @@
         document.addEventListener("DOMContentLoaded", function () {
 
             // Smooth scrolling for navbar links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute("href")).scrollIntoView({
-                        behavior: "smooth"
-                    });
-                });
-            });
+            // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            //     anchor.addEventListener("click", function (e) {
+            //         e.preventDefault();
+            //         document.querySelector(this.getAttribute("href")).scrollIntoView({
+            //             behavior: "smooth"
+            //         });
+            //     });
+            // });
 
             // Fade-in animation on scroll
             const observer = new IntersectionObserver(entries => {
@@ -2329,43 +2331,7 @@
             e.preventDefault();
 
             // mobile screen
-                const carousel = document.querySelector(".product-carousel");
-const trackMobile = document.querySelector(".product-track-new");
-
-if (window.innerWidth <= 768 && carousel && trackMobile) {
-
-    const cards = document.querySelectorAll("#gallery .product");
-    const prevBtn = document.querySelector(".product-arrow-prev");
-    const nextBtn = document.querySelector(".product-arrow-next");
-
-    let currentIndex = 0;
-
-    function updateCarousel() {
-
-        const cardWidth = cards[0].offsetWidth + 20;
-
-        trackMobile.style.transform =
-            `translateX(calc(50% - ${cardWidth / 2}px - ${currentIndex * cardWidth}px))`;
-    }
-
-    nextBtn.addEventListener("click", () => {
-        if (currentIndex < cards.length - 1) {
-            currentIndex++;
-            updateCarousel();
-        }
-    });
-
-    prevBtn.addEventListener("click", () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        }
-    });
-
-    window.addEventListener("resize", updateCarousel);
-
-    updateCarousel();
-}
+            if (window.innerWidth <= 768) {
 
                 const mobileSection = document.getElementById("mobileProducts");
 
